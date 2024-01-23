@@ -8,54 +8,49 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
- 
 class Solution {
 public:
-ListNode*  reverse(ListNode* head)
- {
-     ListNode* rev=NULL,*next=NULL,*cur=head;
-     while(cur!=NULL)
-     {
-         next=cur->next;
-         cur->next=rev;
-         rev=cur;
-         cur=next;
-     }
-     return rev;
-
- }
+ListNode* reverse(ListNode* head)
+{
+    ListNode* next=NULL,*prev=NULL,*cur=head;
+    while(cur!=NULL)
+    {
+        next=cur->next;
+        cur->next=prev;
+        prev=cur;
+        cur=next;
+    }
+    return prev;
+}
     bool isPalindrome(ListNode* head) {
-    ListNode* tem = head;
-    int c=0;
-    while(tem)
-    {
-        c++;
-        tem=tem->next;
-    }
-    tem=head;
-    for(int i=1;i<c/2;i++)
-    {
-        tem=tem->next;
-    }
-    ListNode *nn=tem->next;
-    tem->next=NULL;
-    tem=head;
-    ListNode* rev=reverse(nn);
-    int flag=false;
-    while(tem && rev)
-    {
-        // cout << head->val << " " << rev->val << endl;
-        if(tem->val==rev->val)
+        int c=0;
+        ListNode* temp=head;
+        while(temp)
         {
-            tem=tem->next;
-            rev=rev->next;
+            c++;
+            temp=temp->next;
         }
-        else
+        temp=head;
+        for(int i=1;i<c/2;i++)
         {
-           return false;
+            temp=temp->next;
         }
+        ListNode* nn=temp->next;
+        temp->next=NULL;
+        temp=head;
+        ListNode* rev=reverse(nn);
+        while(temp and rev)
+        {
+            if(temp->val==rev->val)
+            {
+                temp=temp->next;
+                rev=rev->next;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
     }
-    return true;
-    }
-    
 };
