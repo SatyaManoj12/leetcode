@@ -13,8 +13,8 @@ public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         int c=0;
         ListNode* temp=head;
-       if (head == NULL || (head->next == NULL && n == 1)) {
-                                  delete head;  // Free the memory of the only node
+       if (head == NULL) {
+                       //           delete head;  // Free the memory of the only node
                            return NULL;  // Return NULL as the new head
         }
         while(temp)
