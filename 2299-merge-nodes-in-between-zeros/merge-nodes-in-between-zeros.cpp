@@ -14,8 +14,8 @@ public:
         ListNode* temp=head;
         ListNode* cur=head->next;
         int s=0;
-         ListNode* nl=new ListNode(-1);
-         ListNode* c=nl;
+        ListNode* nl=new ListNode(-1);
+        ListNode* c=nl;
         while(cur)
         {
             if(cur->val !=0)
