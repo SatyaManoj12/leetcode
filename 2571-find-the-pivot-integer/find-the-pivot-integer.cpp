@@ -1,16 +1,15 @@
 class Solution {
 public:
     int pivotInteger(int n) {
-      int sum=0;
+      int s=0,pre=0;
       for(int i=1;i<=n;i++)
       {
-        sum+=i;
+        s+=i;
       }
-      int pre=0;
       for(int i=1;i<=n;i++)
       {
-        sum=sum-i;
-        if(sum==pre)
+        s-=i;
+        if(pre==s)
         {
             return i;
         }
