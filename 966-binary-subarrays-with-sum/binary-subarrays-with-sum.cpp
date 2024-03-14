@@ -1,21 +1,17 @@
 class Solution {
 public:
     int numSubarraysWithSum(vector<int>& nums, int goal) {
-        int count = 0;
-        int sum = 0;
-        unordered_map<int, int> prefixSumFreq;
-
-        prefixSumFreq[0] = 1; // Handle subarrays that start from index 0 and
-                              // sum up to the goal
-
-        for (int num : nums) {
-            sum += num;
-            if (prefixSumFreq.find(sum - goal) != prefixSumFreq.end()) {
-                count += prefixSumFreq[sum - goal];
+        int sum = 0, cnt = 0;
+        map<int, int> mpp;
+        mpp[0]=1;
+        for (int i = 0; i < nums.size(); i++) {
+            // if(nums[i]==goal) cnt++;
+            sum+=nums[i];
+            if (mpp.find(sum-goal) != mpp.end()) {
+                cnt += mpp[sum-goal];
             }
-            prefixSumFreq[sum]++;
+            mpp[sum]++;
         }
-
-        return count;
+        return cnt;
     }
 };
