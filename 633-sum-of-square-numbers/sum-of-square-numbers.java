@@ -1,5 +1,3 @@
-import java.lang.Math;
-
 class Solution {
     public boolean judgeSquareSum(long c) {
         long i = 0;
