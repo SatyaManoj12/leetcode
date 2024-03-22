@@ -1,5 +1,12 @@
 class Solution {
 public:
+Solution()
+    {
+            ios_base::sync_with_stdio(false);
+                    cin.tie(NULL);
+                            cout.tie(NULL);
+                                }
+                                
 bool compare(const vector<int> &a, const vector<int> &b) {
        // return accumulate(a.begin(), a.end(), 0) < accumulate(b.begin(), b.end(), 0);
        return a[0]<b[0];
