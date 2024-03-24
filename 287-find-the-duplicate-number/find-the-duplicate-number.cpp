@@ -1,16 +1,16 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        map<int,int>mpp;
+        vector<int>freq(100000+1);
         for(int i=0;i<nums.size();i++)
         {
-            mpp[nums[i]]++;
+            freq[nums[i]]++;
         }
-        for(auto itr:mpp)
+        for(int i=0;i<freq.size();i++)
         {
-            if(itr.second>1)
+            if(freq[nums[i]]>1)
             {
-                return itr.first;
+                return nums[i];
             }
         }
         return 0;
